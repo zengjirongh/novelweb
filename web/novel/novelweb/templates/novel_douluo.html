@@ -1,0 +1,17 @@
+{% extends 'navigation.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="panel panel-info container">
+        <div class="panel-heading">斗罗大陆章节</div>
+        <div class="panel-footer">
+            <div class="row clearfix">
+                {% for item in queryset %}
+                    <div class="col-xs-4">
+                        <a href="{{ item.link }}" style="font-size: 3px">{{ item.title }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

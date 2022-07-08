@@ -31,8 +31,9 @@ class DouluoMysqlPipeline(object):
 
     def process_item(self, item, spider):
         try:
-            sql = 'insert into novelweb_douluo (title,content,link) values ("%s","%s","%s")'
-            self.cursor.execute(sql, [item["title"], item["content"], item["link"]])
+            sql = 'insert into novelweb_douluo (title,content,link) values ("%s","%s","%s")' % (
+            item["title"], item["content"], item["link"])
+            self.cursor.execute(sql)
             self.conn.commit()
         except Exception as e:
             print(e)

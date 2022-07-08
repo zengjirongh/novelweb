@@ -1,0 +1,1 @@
+from novelweb import models
