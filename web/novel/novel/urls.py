@@ -15,11 +15,15 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path
-from novelweb.views import douluo
+from novelweb.views import douluo, tsxk
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('novel/cover/', douluo.novel_cover),
-    path("novel/douluo/", douluo.novel_douluo)
 
+    path("novel/douluo/", douluo.novel_douluo),
+    path('novel/<int:nid>/douluo/', douluo.novel_douluo_page),
+
+    path("novel/tsxk/", tsxk.novel_tsxk),
+    path('novel/<int:nid>/tsxk/', tsxk.novel_tsxk_page),
 ]

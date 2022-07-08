@@ -1,0 +1,11 @@
+{% extends 'navigation.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="panel panel-info container">
+        <div class="panel-heading" style="text-align: center">{{ obj_queryset.title }}</div>
+        <div class="panel-footer">
+            {{ obj_queryset.content }}
+        </div>
+    </div>
+{% endblock %}

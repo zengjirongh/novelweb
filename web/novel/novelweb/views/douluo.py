@@ -12,3 +12,12 @@ def novel_douluo(requeest):
         "queryset": queryset
     }
     return render(requeest, "novel_douluo.html", res)
+
+
+def novel_douluo_page(request, nid):
+    obj_queryset = models.douluo.objects.filter(id=nid).first()
+    res = {
+        "obj_queryset": obj_queryset
+    }
+
+    return render(request, "novel__douluo_page.html", res)
