@@ -15,7 +15,7 @@ class DouluoNovelSpider(scrapy.Spider):
         href = re.findall("href='(.*?)'", pargram, re.S)
         for url in href:
             url_t = self.base_urls + url
-            yield scrapy.Request(url_t, callback=self.parse_info, meta={"url": url})
+            yield scrapy.Request(url_t, callback=self.parse_info, meta={"url": url_t})
 
     def parse_info(self, response):
         item = items.DouluoItem()

@@ -26,9 +26,10 @@ class DouluoMysqlPipeline(object):
     def open_spider(self, spider):
         self.conn = pymysql.Connect(host="127.0.0.1", port=3306, user='root', password='zjr', db="novelweb",
                                     charset="utf8")
+        self.cursor = self.conn.cursor()
+        self.cursor.execute("truncate table novelweb_douluo")
 
     def process_item(self, item, spider):
-        self.cursor = self.conn.cursor()
         try:
             sql = 'insert into novelweb_douluo (title,content,link) values ("%s","%s","%s")'
             self.cursor.execute(sql, [item["title"], item["content"], item["link"]])
